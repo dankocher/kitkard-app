@@ -3,6 +3,7 @@ package com.kitkard;
 import android.app.Application;
 
 import com.facebook.react.ReactApplication;
+import com.thebylito.navigationbarcolor.NavigationBarColorPackage;
 import com.RNFetchBlob.RNFetchBlobPackage;
 import com.oblador.vectoricons.VectorIconsPackage;
 import com.swmansion.reanimated.ReanimatedPackage;
@@ -27,6 +28,7 @@ public class MainApplication extends Application implements ReactApplication {
     protected List<ReactPackage> getPackages() {
       return Arrays.<ReactPackage>asList(
           new MainReactPackage(),
+            new NavigationBarColorPackage(),
             new RNFetchBlobPackage(),
             new VectorIconsPackage(),
             new ReanimatedPackage(),

@@ -6,7 +6,7 @@ import Header from "../components/Header/Header";
 import colors from "../constants/colors";
 import {setTheme} from "../redux/actions";
 import {connect} from "react-redux";
-import {TouchableRipple, Text} from "react-native-paper";
+import Text from "../components/Text";
 import {Icon} from "../components/Icon";
 
 class HomeScreen extends React.Component {

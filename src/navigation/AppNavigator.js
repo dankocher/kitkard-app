@@ -11,6 +11,7 @@ import RightScreen from "../screens/RightScreen";
 import BottomScreen from "../screens/BottomScreen";
 import {setTheme} from "../redux/actions";
 import MainNavigator from "./MainNavigator";
+import {setNavigationBarColor} from "../utils/setNavigationBarColor";
 
 const AppSwitchNavigator = createStackNavigator({
     Main: MainNavigator, // This screen renders a navigator!
@@ -69,37 +70,17 @@ const AppSwitchNavigator = createStackNavigator({
         }
         return dynamicModalTransition
     },
-    /*
-    transitionConfig: (toTransitionProps, fromTransitionProps) => {
-        if (fromTransitionProps != null && toTransitionProps != null) {
-            const isBack = fromTransitionProps.navigation.state.index >= toTransitionProps.navigation.state.index;
-            const routeName = isBack ? fromTransitionProps.scene.route.routeName : toTransitionProps.scene.route.routeName;
-            switch(routeName) {
-                case "NoAnimationNavigator":
-                    return {
-                        transitionSpec: { duration: isBack ? 0 : 0 },
-                        // screenInterpolator: CardStackStyleInterpolator.forFade,
-                    };
-                case "SearchNavigator":
-                    return {
-                        transitionSpec: { duration: isBack ? 0 : 0 },
-                        // screenInterpolator: CardStackStyleInterpolator.forFade,
-                    };
-            }
-        }
-        return {
-            transitionSpec: 0,
-            // screenInterpolator: CardStackStyleInterpolator.forFade,
-        };
-        // return { screenInterpolator: CardStackStyleInterpolator.forHorizontal }
-    },
-    */
 });
 
 
 const AppContainer = createAppContainer(AppSwitchNavigator);
 
 class AppNavigator extends React.Component {
+
+    componentDidMount() {
+        setNavigationBarColor(this.props.theme)
+    }
+
     render() {
         return (
             <AppContainer/>

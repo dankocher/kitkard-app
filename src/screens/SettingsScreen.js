@@ -1,15 +1,21 @@
 import React from "react";
 import {StyleSheet, StatusBar, Button, View} from 'react-native';
-import {SafeAreaView} from "react-navigation";
-import {Text} from "react-native";
+import Text from "../components/Text";
 import {setTheme} from "../redux/actions";
 import {connect} from "react-redux";
 import colors from "../constants/colors";
 import {hideTopBar} from "../constants/hideTopBar";
 import Header from "../components/Header/Header";
+import {setNavigationBarColor} from "../utils/setNavigationBarColor";
 
 class SettingsScreen extends React.Component {
     static navigationOptions = () => (hideTopBar);
+
+    toggleTheme = async () => {
+        const newTheme = this.props.theme === "light" ? "dark" : "light";
+        await this.props.setTheme(newTheme);
+        setNavigationBarColor(newTheme);
+    };
 
     render() {
         const color = colors[this.props.theme];
@@ -21,7 +27,7 @@ class SettingsScreen extends React.Component {
                     <Text style={styles.paragraphTop}>This is top text.</Text>
                     <Text style={styles.paragraphBottom}>This is bottom text.</Text>
                     <Button title={"Right"} onPress={() => this.props.navigation.navigate("RightView")}/>
-                    <Button title={this.props.theme === "light" ? "Dark" : "Light"} onPress={() => this.props.setTheme(this.props.theme === "light" ? "dark" : "light")}/>
+                    <Button title={this.props.theme === "light" ? "Dark" : "Light"} onPress={this.toggleTheme}/>
 
                 </View>
             </View>

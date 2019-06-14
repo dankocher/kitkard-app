@@ -1,7 +1,7 @@
 import React from "react";
 import {StyleSheet, StatusBar, Button} from 'react-native';
 import {SafeAreaView} from "react-navigation";
-import {Text} from "react-native";
+import Text from "../components/Text";
 import {hideTopBar} from "../constants/hideTopBar";
 
 class SettingsScreen extends React.Component {

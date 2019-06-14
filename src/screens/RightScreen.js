@@ -1,7 +1,7 @@
 import React from "react";
 import {StyleSheet, StatusBar, Button, View} from 'react-native';
 import {SafeAreaView} from "react-navigation";
-import {Text} from "react-native";
+import Text from "../components/Text";
 import colors from "../constants/colors";
 import {setTheme} from "../redux/actions";
 import {connect} from "react-redux";
